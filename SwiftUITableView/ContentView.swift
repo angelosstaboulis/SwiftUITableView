@@ -30,11 +30,9 @@ struct ContentView: View {
             }
             ToolbarItem(placement:.bottomBar) {
                 Button {
-                    for _ in 0..<20{
-                        list.append(Int.random(in: 0..<1000))
-                    }
+                   fillShowArray()
                 } label: {
-                    Text("Fill Array")
+                    Text("Fill-Show-Array")
                 }.padding(40.0)
 
             }
@@ -49,6 +47,20 @@ struct ContentView: View {
         }
         DetailsView(selectedNumber: $selectedItem)
     }
+    
+    func fillShowArray(){
+        if list.count > 0 {
+            list.removeAll()
+            for _ in 0..<20{
+                list.append(Int.random(in: 0..<1000))
+            }
+        }else{
+            for _ in 0..<20{
+                list.append(Int.random(in: 0..<1000))
+            }
+        }
+    }
+        
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
